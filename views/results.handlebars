@@ -1,0 +1,57 @@
+{{#if paramList.length}} {{!-- 'if' helper; state receival and generate table if paramList is not empty --}}
+<h1>{{reqType}} Request Received</h1>
+<div></div>
+<table>
+    <caption>
+        <u>
+            <p>Parameters Sent in URL Query String</p>
+        </u>
+    </caption>
+
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each paramList}} {{!-- 'each' helper; iterate through each data pair in paramList and fill out name and value template --}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.value}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{/if}}
+
+<div></div>
+
+{{#if bodyList.length}}
+<h1>{{reqType}} Request Received</h1>
+<div></div>
+<table>
+    <caption>
+        <u>
+            <p>Property Names and Values Received in Request Body</p>
+        </u>
+    </caption>
+
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each bodyList}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.value}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{/if}}
